@@ -1,3 +1,29 @@
+/*
+===============================================================================
+Project Title : File Locking using fcntl()
+File Name     : file_lock_writer.c
+Description   : 
+    This program demonstrates how to apply a write lock on a file using 
+    System-level file locking with `fcntl()` in C. It creates or opens a 
+    file named "file.txt", applies a write lock to ensure exclusive access, 
+    writes a message containing the process ID (PID), holds the lock for 5 
+    seconds (simulating processing), and then unlocks the file before exiting.
+
+Key Concepts  :
+    - File descriptors using `open()`
+    - Record/file locking with `fcntl()` and `struct flock`
+    - Exclusive write locking (F_WRLCK)
+    - Lock releasing (F_UNLCK)
+    - Basic file I/O and process management in Unix/Linux
+
+Usage         :
+    1. Compile: `gcc file_lock_writer.c -o writer`
+    2. Run: `./writer`
+    3. Observe the lock behavior by running this with another process 
+       trying to access the same file (e.g., another writer/reader).
+===============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
